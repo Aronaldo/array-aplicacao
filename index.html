@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array- Aplicação</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="fruta">Fruta</label>
+        <input type="text" id="fruta" placeholder="Informe a fruta">
+        <button onclick="cadastrarFruta()">Cadastrar</button>
+    </form>
+    <div id="lista-frutas">
+      
+    </div>
+    <script>
+        let frutasArray = [];// array vazio (escopo do  - global para funções)
+
+        function cadastrarFruta() {
+            event.preventDefault();//evita o submit do formulario            
+            let f = document.getElementById('fruta').value;
+
+            if (f == "") {
+                //guada a fruta no array
+                alert("informe uma fruta!")
+
+
+
+            } else {
+
+                frutasArray.push(f);
+            }
+
+
+            //guarda a fruta no array          
+
+            // frutasArray.push(f);
+
+            //debug
+            // console.log(f); 
+            console.log(frutasArray);
+            exibirFrutas();
+        }
+
+        function exibirFrutas() {
+            let template = "<h4>lista de frutas</h4>";
+            template += "<ul>";
+            for (let i = 0; i < frutasArray.length; i++) {
+                template += ` <li>${frutasArray[i]}</li>`;
+
+            }
+            template += "</ul>";
+            document.getElementById('lista-frutas').innerHTML = template;
+
+
+        }
+
+
+
+    </script>
+    
+</body>
+
+</html>
